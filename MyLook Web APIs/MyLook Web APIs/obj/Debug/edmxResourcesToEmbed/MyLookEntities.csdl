@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mylookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="avaliacao">
+    <Key>
+      <PropertyRef Name="Foto_id" />
+      <PropertyRef Name="TipoAvaliacao_id" />
+    </Key>
+    <Property Name="Foto_id" Type="Int64" Nullable="false" />
+    <Property Name="TipoAvaliacao_id" Type="Int32" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="foto" Relationship="Self.fk_Avaliacao_Foto1" FromRole="avaliacao" ToRole="foto" />
+    <NavigationProperty Name="tipoavaliacao" Relationship="Self.fk_Avaliacao_TipoAvaliacao1" FromRole="avaliacao" ToRole="tipoavaliacao" />
+  </EntityType>
+  <EntityType Name="convite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario_CloudId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_Convite_Usuario1" FromRole="convite" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="foto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario_CloudId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="avaliacao" Relationship="Self.fk_Avaliacao_Foto1" FromRole="foto" ToRole="avaliacao" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_Foto_Usuario" FromRole="foto" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="tipoavaliacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="avaliacao" Relationship="Self.fk_Avaliacao_TipoAvaliacao1" FromRole="tipoavaliacao" ToRole="avaliacao" />
+    <NavigationProperty Name="interesses" Relationship="Self.fk_Interesses_TipoAvaliacao1" FromRole="tipoavaliacao" ToRole="interesses" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="CloudId" />
+    </Key>
+    <Property Name="CloudId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sobrenome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="Int32" Nullable="false" />
+    <Property Name="DataNascimento" Type="DateTime" Nullable="false" />
+    <Property Name="Foto" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FrasePerfil" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pontos" Type="Int64" Nullable="false" />
+    <Property Name="Vip" Type="Boolean" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="convite" Relationship="Self.fk_Convite_Usuario1" FromRole="usuario" ToRole="convite" />
+    <NavigationProperty Name="foto1" Relationship="Self.fk_Foto_Usuario" FromRole="usuario" ToRole="foto" />
+    <NavigationProperty Name="interesses" Relationship="Self.fk_Interesses_Usuario1" FromRole="usuario" ToRole="interesses" />
+    <NavigationProperty Name="seguidores" Relationship="mylookModel.fk_Seguidores_Usuario1" FromRole="usuario" ToRole="seguidores" />
+    <NavigationProperty Name="seguidores1" Relationship="mylookModel.fk_Seguidores_Usuario2" FromRole="usuario" ToRole="seguidores" />
+  </EntityType>
+  <EntityType Name="interesses">
+    <Key>
+      <PropertyRef Name="Usuario_CloudId" />
+      <PropertyRef Name="TipoAvaliacao_id" />
+      <PropertyRef Name="C_dataCriacao" />
+      <PropertyRef Name="C_dataAlteracao" />
+    </Key>
+    <Property Name="Usuario_CloudId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoAvaliacao_id" Type="Int32" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tipoavaliacao" Relationship="Self.fk_Interesses_TipoAvaliacao1" FromRole="interesses" ToRole="tipoavaliacao" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_Interesses_Usuario1" FromRole="interesses" ToRole="usuario" />
+  </EntityType>
+  <Association Name="fk_Avaliacao_Foto1">
+    <End Role="foto" Type="Self.foto" Multiplicity="1" />
+    <End Role="avaliacao" Type="Self.avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="avaliacao">
+        <PropertyRef Name="Foto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Avaliacao_TipoAvaliacao1">
+    <End Role="tipoavaliacao" Type="Self.tipoavaliacao" Multiplicity="1" />
+    <End Role="avaliacao" Type="Self.avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoavaliacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="avaliacao">
+        <PropertyRef Name="TipoAvaliacao_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Convite_Usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="convite" Type="Self.convite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="convite">
+        <PropertyRef Name="Usuario_CloudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Foto_Usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="foto" Type="Self.foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="foto">
+        <PropertyRef Name="Usuario_CloudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Interesses_TipoAvaliacao1">
+    <End Role="tipoavaliacao" Type="Self.tipoavaliacao" Multiplicity="1" />
+    <End Role="interesses" Type="Self.interesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoavaliacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="interesses">
+        <PropertyRef Name="TipoAvaliacao_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Interesses_Usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="interesses" Type="Self.interesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="interesses">
+        <PropertyRef Name="Usuario_CloudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mylookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="avaliacao" EntityType="Self.avaliacao" />
+    <EntitySet Name="convite" EntityType="Self.convite" />
+    <EntitySet Name="foto" EntityType="Self.foto" />
+    <EntitySet Name="tipoavaliacao" EntityType="Self.tipoavaliacao" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <EntitySet Name="interesses" EntityType="Self.interesses" />
+    <AssociationSet Name="fk_Avaliacao_Foto1" Association="Self.fk_Avaliacao_Foto1">
+      <End Role="foto" EntitySet="foto" />
+      <End Role="avaliacao" EntitySet="avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Avaliacao_TipoAvaliacao1" Association="Self.fk_Avaliacao_TipoAvaliacao1">
+      <End Role="tipoavaliacao" EntitySet="tipoavaliacao" />
+      <End Role="avaliacao" EntitySet="avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Convite_Usuario1" Association="Self.fk_Convite_Usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="convite" EntitySet="convite" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Foto_Usuario" Association="Self.fk_Foto_Usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="foto" EntitySet="foto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Interesses_TipoAvaliacao1" Association="Self.fk_Interesses_TipoAvaliacao1">
+      <End Role="tipoavaliacao" EntitySet="tipoavaliacao" />
+      <End Role="interesses" EntitySet="interesses" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Interesses_Usuario1" Association="Self.fk_Interesses_Usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="interesses" EntitySet="interesses" />
+    </AssociationSet>
+    <EntitySet Name="seguidores" EntityType="mylookModel.seguidores" />
+    <AssociationSet Name="fk_Seguidores_Usuario1" Association="mylookModel.fk_Seguidores_Usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="seguidores" EntitySet="seguidores" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Seguidores_Usuario2" Association="mylookModel.fk_Seguidores_Usuario2">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="seguidores" EntitySet="seguidores" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="seguidores">
+    <Key>
+      <PropertyRef Name="Origem" />
+      <PropertyRef Name="Destino" />
+    </Key>
+    <Property Name="Origem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Destino" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Block" Type="Boolean" Nullable="false" />
+    <Property Name="C_dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_dataAlteracao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="usuario" Relationship="mylookModel.fk_Seguidores_Usuario1" FromRole="seguidores" ToRole="usuario" />
+    <NavigationProperty Name="usuario1" Relationship="mylookModel.fk_Seguidores_Usuario2" FromRole="seguidores" ToRole="usuario" />
+  </EntityType>
+  <Association Name="fk_Seguidores_Usuario1">
+    <End Type="mylookModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="mylookModel.seguidores" Role="seguidores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="seguidores">
+        <PropertyRef Name="Origem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Seguidores_Usuario2">
+    <End Type="mylookModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="mylookModel.seguidores" Role="seguidores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="seguidores">
+        <PropertyRef Name="Destino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

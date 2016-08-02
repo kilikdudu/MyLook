@@ -1,0 +1,35 @@
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\csc.exe
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\System.Collections.Immutable.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\vbc.exe
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\VBCSCompiler.exe
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\roslyn\VBCSCompiler.exe.config
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\MyLook Web APIs.dll.config
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\MyLook Web APIs.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\MyLook Web APIs.pdb
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\EntityFramework.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\EntityFramework.SqlServer.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\MySql.Data.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\MySql.Data.Entity.EF6.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\MySql.Web.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\Newtonsoft.Json.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\System.Net.Http.Formatting.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\System.Web.Http.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\System.Web.Http.WebHost.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\EntityFramework.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\EntityFramework.SqlServer.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\Newtonsoft.Json.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\System.Net.Http.Formatting.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\System.Web.Http.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\bin\System.Web.Http.WebHost.xml
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\obj\Debug\MyLook Web APIs.dll
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\obj\Debug\MyLook Web APIs.pdb
+c:\users\usuário\documents\visual studio 2015\Projects\MyLook Web APIs\MyLook Web APIs\obj\Debug\MyLook Web APIs.csprojResolveAssemblyReference.cache

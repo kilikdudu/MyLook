@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mylookModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="avaliacao">
+    <Key>
+      <PropertyRef Name="Foto_id" />
+      <PropertyRef Name="TipoAvaliacao_id" />
+    </Key>
+    <Property Name="Foto_id" Type="bigint" Nullable="false" />
+    <Property Name="TipoAvaliacao_id" Type="int" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="convite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Usuario_CloudId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="foto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Usuario_CloudId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.mylook.interesses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="interesses">
+    <Key>
+      <PropertyRef Name="Usuario_CloudId" />
+      <PropertyRef Name="TipoAvaliacao_id" />
+      <PropertyRef Name="_dataCriacao" />
+      <PropertyRef Name="_dataAlteracao" />
+    </Key>
+    <Property Name="Usuario_CloudId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TipoAvaliacao_id" Type="int" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="seguidores">
+    <Key>
+      <PropertyRef Name="Origem" />
+      <PropertyRef Name="Destino" />
+    </Key>
+    <Property Name="Origem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Destino" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Block" Type="bool" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipoavaliacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="CloudId" />
+    </Key>
+    <Property Name="CloudId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Sobrenome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Sexo" Type="int" Nullable="false" />
+    <Property Name="DataNascimento" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Foto" Type="varchar" MaxLength="400" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="FrasePerfil" Type="varchar" MaxLength="180" Nullable="false" />
+    <Property Name="Pontos" Type="bigint" Nullable="false" />
+    <Property Name="Vip" Type="bool" Nullable="false" />
+    <Property Name="_dataCriacao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_dataAlteracao" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_Avaliacao_Foto1">
+    <End Role="foto" Type="Self.foto" Multiplicity="1" />
+    <End Role="avaliacao" Type="Self.avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="avaliacao">
+        <PropertyRef Name="Foto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Avaliacao_TipoAvaliacao1">
+    <End Role="tipoavaliacao" Type="Self.tipoavaliacao" Multiplicity="1" />
+    <End Role="avaliacao" Type="Self.avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoavaliacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="avaliacao">
+        <PropertyRef Name="TipoAvaliacao_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Convite_Usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="convite" Type="Self.convite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="convite">
+        <PropertyRef Name="Usuario_CloudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Foto_Usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="foto" Type="Self.foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="foto">
+        <PropertyRef Name="Usuario_CloudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Interesses_TipoAvaliacao1">
+    <End Role="tipoavaliacao" Type="Self.tipoavaliacao" Multiplicity="1" />
+    <End Role="interesses" Type="Self.interesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoavaliacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="interesses">
+        <PropertyRef Name="TipoAvaliacao_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Interesses_Usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="interesses" Type="Self.interesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="interesses">
+        <PropertyRef Name="Usuario_CloudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Seguidores_Usuario1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="seguidores" Type="Self.seguidores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="seguidores">
+        <PropertyRef Name="Origem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Seguidores_Usuario2">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="seguidores" Type="Self.seguidores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CloudId" />
+      </Principal>
+      <Dependent Role="seguidores">
+        <PropertyRef Name="Destino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mylookModelStoreContainer">
+    <EntitySet Name="avaliacao" EntityType="Self.avaliacao" Schema="mylook" store:Type="Tables" />
+    <EntitySet Name="convite" EntityType="Self.convite" Schema="mylook" store:Type="Tables" />
+    <EntitySet Name="foto" EntityType="Self.foto" Schema="mylook" store:Type="Tables" />
+    <EntitySet Name="seguidores" EntityType="Self.seguidores" Schema="mylook" store:Type="Tables" />
+    <EntitySet Name="tipoavaliacao" EntityType="Self.tipoavaliacao" Schema="mylook" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="mylook" store:Type="Tables" />
+    <EntitySet Name="interesses" EntityType="Self.interesses" store:Type="Tables" store:Schema="mylook">
+      <DefiningQuery>SELECT
+`interesses`.`Usuario_CloudId`, 
+`interesses`.`TipoAvaliacao_id`, 
+`interesses`.`_dataCriacao`, 
+`interesses`.`_dataAlteracao`
+FROM `interesses` AS `interesses`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_Avaliacao_Foto1" Association="Self.fk_Avaliacao_Foto1">
+      <End Role="foto" EntitySet="foto" />
+      <End Role="avaliacao" EntitySet="avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Avaliacao_TipoAvaliacao1" Association="Self.fk_Avaliacao_TipoAvaliacao1">
+      <End Role="tipoavaliacao" EntitySet="tipoavaliacao" />
+      <End Role="avaliacao" EntitySet="avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Convite_Usuario1" Association="Self.fk_Convite_Usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="convite" EntitySet="convite" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Foto_Usuario" Association="Self.fk_Foto_Usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="foto" EntitySet="foto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Interesses_TipoAvaliacao1" Association="Self.fk_Interesses_TipoAvaliacao1">
+      <End Role="tipoavaliacao" EntitySet="tipoavaliacao" />
+      <End Role="interesses" EntitySet="interesses" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Interesses_Usuario1" Association="Self.fk_Interesses_Usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="interesses" EntitySet="interesses" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Seguidores_Usuario1" Association="Self.fk_Seguidores_Usuario1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="seguidores" EntitySet="seguidores" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Seguidores_Usuario2" Association="Self.fk_Seguidores_Usuario2">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="seguidores" EntitySet="seguidores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

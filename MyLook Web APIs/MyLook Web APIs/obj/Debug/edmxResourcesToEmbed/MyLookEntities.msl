@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mylookModelStoreContainer" CdmEntityContainer="mylookEntities">
+    <EntitySetMapping Name="avaliacao">
+      <EntityTypeMapping TypeName="mylookModel.avaliacao">
+        <MappingFragment StoreEntitySet="avaliacao">
+          <ScalarProperty Name="Foto_id" ColumnName="Foto_id" />
+          <ScalarProperty Name="TipoAvaliacao_id" ColumnName="TipoAvaliacao_id" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="convite">
+      <EntityTypeMapping TypeName="mylookModel.convite">
+        <MappingFragment StoreEntitySet="convite">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Usuario_CloudId" ColumnName="Usuario_CloudId" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foto">
+      <EntityTypeMapping TypeName="mylookModel.foto">
+        <MappingFragment StoreEntitySet="foto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Usuario_CloudId" ColumnName="Usuario_CloudId" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoavaliacao">
+      <EntityTypeMapping TypeName="mylookModel.tipoavaliacao">
+        <MappingFragment StoreEntitySet="tipoavaliacao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="mylookModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="CloudId" ColumnName="CloudId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Sobrenome" ColumnName="Sobrenome" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FrasePerfil" ColumnName="FrasePerfil" />
+          <ScalarProperty Name="Pontos" ColumnName="Pontos" />
+          <ScalarProperty Name="Vip" ColumnName="Vip" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="interesses">
+      <EntityTypeMapping TypeName="mylookModel.interesses">
+        <MappingFragment StoreEntitySet="interesses">
+          <ScalarProperty Name="Usuario_CloudId" ColumnName="Usuario_CloudId" />
+          <ScalarProperty Name="TipoAvaliacao_id" ColumnName="TipoAvaliacao_id" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seguidores">
+      <EntityTypeMapping TypeName="mylookModel.seguidores">
+        <MappingFragment StoreEntitySet="seguidores">
+          <ScalarProperty Name="C_dataAlteracao" ColumnName="_dataAlteracao" />
+          <ScalarProperty Name="C_dataCriacao" ColumnName="_dataCriacao" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="Origem" ColumnName="Origem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
